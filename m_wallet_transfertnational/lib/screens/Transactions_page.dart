@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:m_wallet_transfertnational/classes/transaction.dart';
-import 'package:m_wallet_transfertnational/widgets/transactionTile.dart';
+import 'package:m_wallet_transfertnational/widgets/transaction_tile.dart';
 
 class TransactionsPage extends StatefulWidget {
   const TransactionsPage({super.key});
@@ -98,20 +98,18 @@ class _TransactionsPageState extends State<TransactionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF424A61),
+      appBar: AppBar(
+        title: const Text('Transactions'),
+        centerTitle: true,
+        backgroundColor: const Color(0xFF424A61),
+      ),
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              const Text(
-                'Transactions',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -204,7 +202,9 @@ class _TransactionsPageState extends State<TransactionsPage> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            color: filter == selectedFilter ? Colors.black : Color(0xFFDEE6FB),
+            color: filter == selectedFilter
+                ? Color(0xFF424A61)
+                : Color(0xFFDEE6FB),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(
@@ -214,7 +214,8 @@ class _TransactionsPageState extends State<TransactionsPage> {
               fontWeight: filter == selectedFilter
                   ? FontWeight.bold
                   : FontWeight.normal,
-              color: filter == selectedFilter ? Colors.white : Colors.black,
+              color:
+                  filter == selectedFilter ? Colors.white : Color(0xFF424A61),
             ),
           ),
         ),
