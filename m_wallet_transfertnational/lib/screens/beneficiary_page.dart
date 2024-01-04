@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:m_wallet_transfertnational/screens/add_beneficiary_page.dart';
 import '../classes/user.dart';
 import '../widgets/beneficiary_tile.dart';
 
@@ -57,7 +58,14 @@ class BeneficiaryPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFF424A61),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const BeneficiaryAdd(),
+            ),
+          );
+        },
         child: Icon(Icons.add),
       ),
     );
