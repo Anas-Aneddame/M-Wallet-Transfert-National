@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:intl/intl.dart';
+import 'package:m_wallet_transfertnational/screens/TransactionsPage.dart';
 import 'package:m_wallet_transfertnational/widgets/transactionTile.dart';
 import '../classes/transaction.dart';
 import '../widgets/card.dart';
@@ -193,6 +194,13 @@ class _HomeState extends State<Home> {
                           children: [
                             GestureDetector(
                               onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const TransactionsPage(),
+                                  ),
+                                );
                                 print("Container clicked!");
                               },
                               child: Container(
@@ -260,6 +268,12 @@ class _HomeState extends State<Home> {
                         ),
                         GestureDetector(
                           onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const TransactionsPage(),
+                              ),
+                            );
                             print("Container clicked!");
                           },
                           child: const Row(
