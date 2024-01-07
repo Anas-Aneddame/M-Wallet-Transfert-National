@@ -120,7 +120,7 @@ class UserCard extends StatelessWidget {
                     child: Container(
                       width: 47.71,
                       height: 35.14,
-                      child: const Stack(children: []),
+                      child:  Stack(children: []),
                     ),
                   ),
                 ],

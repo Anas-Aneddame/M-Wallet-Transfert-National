@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:m_wallet_transfertnational/classes/beneficiary.dart';
 import 'package:m_wallet_transfertnational/screens/add_beneficiary_page.dart';
+import 'package:m_wallet_transfertnational/screens/transfer_screen.dart';
 import '../classes/user.dart';
 import '../widgets/beneficiary_tile.dart';
 
 class BeneficiaryPage extends StatelessWidget {
-  List<User> beneficiaries = [
-    User(userName: 'Anas', phoneNumber: '0612345678'),
-    User(userName: 'Joe', phoneNumber: '0612345678'),
-    User(userName: 'Eve', phoneNumber: '0612345678'),
+  List<Beneficiary> beneficiaries = [
+    Beneficiary(id: 1,firstName: 'John',lastName: "Doe", phone: '0612345678',email: "john@doe.com"),
+    Beneficiary(id: 2,firstName: 'Jack',lastName: "Sparrow", phone: '0612345678',email: "jack@sp.com"),
+    Beneficiary(id: 3,firstName: 'Jane',lastName: "Austen", phone: '0612345678',email: "Jane@doe.com"),
+
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: const Text('Choose Beneficiary'),
         centerTitle: true,
@@ -27,7 +31,7 @@ class BeneficiaryPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
@@ -42,14 +46,21 @@ class BeneficiaryPage extends StatelessWidget {
                     labelStyle: TextStyle(color: Colors.white)),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
               child: ListView.builder(
                 itemCount: beneficiaries.length,
                 itemBuilder: (context, index) {
-                  return BeneficiaryTile(beneficiary: beneficiaries[index]);
+                  return GestureDetector(child: BeneficiaryTile(beneficiary: beneficiaries[index]),onTap:()=>{
+                                                  Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => TransferScreen(beneficiaries[index]),
+                                  ),
+                                )
+                  } );
                 },
               ),
             ),

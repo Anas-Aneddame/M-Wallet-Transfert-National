@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:m_wallet_transfertnational/classes/beneficiary.dart';
 import 'package:m_wallet_transfertnational/classes/user.dart';
 
 class BeneficiaryTile extends StatelessWidget {
-  final User beneficiary;
+  final Beneficiary beneficiary;
 
   const BeneficiaryTile({super.key, required this.beneficiary});
   @override
@@ -36,7 +37,7 @@ class BeneficiaryTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      beneficiary.userName,
+                      beneficiary.firstName+" "+beneficiary.lastName,
                       style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -45,7 +46,7 @@ class BeneficiaryTile extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
-                    Text(beneficiary.phoneNumber,
+                    Text(beneficiary.phone,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,

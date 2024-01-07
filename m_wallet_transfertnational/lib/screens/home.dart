@@ -283,7 +283,7 @@ class _HomeState extends State<Home> {
                             );
                             print("Container clicked!");
                           },
-                          child: const Row(
+                          child: const  Row(
                             children: [
                               Text(
                                 'View All',
